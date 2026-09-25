@@ -19,7 +19,7 @@ export const products = pgTable('products', {
   id: serial('id').primaryKey(),
   name: varchar('name', { length: 255 }).notNull(),
   sku: varchar('sku', { length: 100 }).notNull().unique(),
-  price: numeric('price', { precision: 12, scale: 2 }).notNull(),
+  price: numeric('price', { precision: 12, scale: 2, mode: 'number' }).notNull(),
   stock: integer('stock').notNull().default(0),
   category: categoryEnum('category').notNull(),
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
